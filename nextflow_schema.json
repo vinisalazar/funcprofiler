@@ -83,7 +83,8 @@
                     "type": "boolean",
                     "fa_icon": "fas fa-toggle-on",
                     "description": "Turn on run merging",
-                    "help_text": "Turns on the concatenation of sequencing runs or libraries with the same sample name.\n\nThis can be useful to ensure you get a single profile per sample, rather than one profile per run or library. Note that in some cases comparing profiles of independent _libraries_ may be useful, so this parameter may not always be suitable.  "
+                    "help_text": "Turns on the concatenation of sequencing runs or libraries with the same sample name.\n\nThis can be useful to ensure you get a single profile per sample, rather than one profile per run or library. Note that in some cases comparing profiles of independent _libraries_ may be useful, so this parameter may not always be suitable.  ",
+                    "default": true
                 },
                 "save_runmerged_reads": {
                     "type": "boolean",
@@ -122,11 +123,14 @@
                     "help_text": "This parameter specifies to use the calculated relative abundance (i.e., percentage of all hits). This is normally the default behaviour in mOTUs however we use counts by default in nf-core/taxprofiler for consistency with other classification/profiling tools.\n\n> Modifies tool parameter(s):\n> - mOTUs: `-c` (removed from the default nf-core/taxprofiler command)"
                 },
                 "run_rgi": {
-                    "type": "string",
-                    "description": "Turn on profiling with RGI."
+                    "type": "boolean",
+                    "description": "Turn on profiling with RGI. Requires database to be present CSV file passed to --databases",
+                    "default": false
                 },
                 "run_mifaser": {
-                    "type": "string"
+                    "type": "boolean",
+                    "description": "Turn on profiling with mi-faser. Requires database to be present CSV file passed to --databases",
+                    "default": false
                 }
             }
         },
