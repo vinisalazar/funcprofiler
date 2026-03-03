@@ -39,11 +39,11 @@
    - Adapter clipping and merging (short-read: [fastp](https://github.com/OpenGene/fastp); long-read: [porechop](https://github.com/rrwick/Porechop))
    - Host-read removal (short-read: [BowTie2](http://bowtie-bio.sourceforge.net/bowtie2/); long-read: [Minimap2](https://github.com/lh3/minimap2))
    - Run merging
-4. Performs functional classification and/or profiling using one or more of:
+3. Performs functional classification and/or profiling using one or more of:
    - [humann3](http://huttenhower.sph.harvard.edu/humann)
    - [DIAMOND](https://github.com/bbuchfink/diamond)
    - [Resistance Gene Identifier](https://card.mcmaster.ca/analyze/rgi)
-5. Concatenate QC and profile reports ([`MultiQC`](http://multiqc.info/))
+4. Concatenate QC and profile reports ([`MultiQC`](http://multiqc.info/))
 
 ## Usage
 
