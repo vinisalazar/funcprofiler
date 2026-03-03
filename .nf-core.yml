@@ -3,7 +3,8 @@ repository_type: pipeline
 nf_core_version: 3.5.2
 
 lint:
-  logo: False
+  files_unchanged:
+    - .github/workflows/branch.yml`
 
 template:
   org: nf-core
