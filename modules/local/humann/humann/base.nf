@@ -17,17 +17,20 @@ def extMap = [
     'HUMANN4': '*.fna.gz'
 ]
 
+def condaDirective = params.enable_conda ? { condaMap[getProcessName(task.process)] } : null
+def containerDirective = {
+    workflow.containerEngine == 'singularity' && !params.singularity_pull_docker_container
+        ? "docker://" + containerMap[getProcessName(task.process)]
+        : containerMap[getProcessName(task.process)]
+}
+
 
 process HUMANN_HUMANN {
     tag "$meta.id"
     label 'process_high'
 
-    conda (params.enable_conda ? { condaMap[getProcessName(task.process)] } : null)
-    if (workflow.containerEngine == 'singularity' && !params.singularity_pull_docker_container)	{
-        container { "docker://" + containerMap[getProcessName(task.process)] }
-    } else {
-    container { containerMap[getProcessName(task.process)] }
-    }
+    conda condaDirective
+    container containerDirective
     input:
     tuple val(meta), path(input)
     tuple val(meta), path(profile)
